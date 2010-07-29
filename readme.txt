@@ -1,10 +1,10 @@
 === WP-SNAP! ===
-Contributors: nateomedia
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=paypal%40nateomedia%2ecom&item_name=Donation&no_shipping=1&no_note=1&tax=0&currency_code=USD&lc=US&bn=PP%2dDonationsBF&charset=UTF%2d8
+Contributors: momo360modena
+Donate link: 
 Tags: navigation, alphabetical, post, page, glossary, index, reviews
-Requires at least: 2.8
-Tested up to: 2.8.1
-Stable tag: 0.9
+Requires at least: 3.0
+Tested up to: 3.0
+Stable tag: 1.0
 
 WP-SNAP! (WordPress System for Navigating Alphabetized Posts) creates an user interface for navigating alphabetized post titles.
 

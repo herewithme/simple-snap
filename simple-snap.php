@@ -3,7 +3,7 @@
 Plugin Name: Simple Glossary
 Plugin URI: http://www.beapi.fr
 Description: Use the custom post type Glossary for displaying glossary items with filter
-Version: 0.9
+Version: 1.0
 Author: Amaury Balmer
 Author URI: http://www.beapi.fr
 
@@ -16,7 +16,6 @@ Original work from WP-SNAP! by Nathan Olsen - http://www.nateomedia.com/
 
 ---
 Copyright 2010 Amaury Balmer http://www.beapi.fr
-Copyright 2006-2008 Nathan Olsen  http://www.nateomedia.com
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -33,6 +32,8 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
+// Define the default glossary post type slug
+define( 'GLOSSARY_POSTTYPE', 'glossary' );
 define( 'SNAP_SLUG', 'letter' );
 
 require( dirname(__FILE__) . '/inc/class.core.php' );
@@ -45,7 +46,7 @@ register_activation_hook(__FILE__, 'install_simple_snap' );
 
 // Init Simple Snap
 function simple_snap_init() {	
-	//Add new rewriting rules
+	// Add new rewriting rules
 	new glossary_rewrite();
 	
 	// Localization
@@ -56,10 +57,6 @@ function simple_snap_init() {
 		require( dirname(__FILE__) . '/inc/admin.php' );
 		add_action('admin_menu',  'simple_snap_add_option_page');
 	}
-	
-	//Define the default glossary post type slug
-	define('GLOSSARY_POSTTYPE','glossary');
-
 }
 add_action( 'plugins_loaded', 'simple_snap_init' );
 
