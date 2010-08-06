@@ -43,9 +43,9 @@ class glossary_rewrite{
 			
 			// Build array for rewriting
 			$new_rules = array(	
-				$slug . '/?$' => 'index.php?post_type=glossary',	
-				$slug . '/([A-Za-z]*)$' => 'index.php?post_type=glossary&letter='.$wp_rewrite->preg_index(1),
-				$slug . '/([A-Za-z]-[A-Za-z])' => 'index.php?post_type=glossary&letter='.$wp_rewrite->preg_index(1)
+				$slug . '/?$' => 'index.php?post_type='.GLOSSARY_POSTTYPE,	
+				$slug . '/([A-Za-z]*)$' => 'index.php?post_type='.GLOSSARY_POSTTYPE.'&'.SNAP_SLUG.'='.$wp_rewrite->preg_index(1),
+				$slug . '/([A-Za-z]-[A-Za-z])' => 'index.php?post_type='.GLOSSARY_POSTTYPE.'&'.SNAP_SLUG.'='.$wp_rewrite->preg_index(1)
 			);
 			$wp_rewrite->rules = array_merge($new_rules, $wp_rewrite->rules);
 	}
@@ -57,7 +57,7 @@ class glossary_rewrite{
 	 * @author Nicolas JUEN
 	 */
 	function addQueryVar( $qvars ) {
-		  $qvars[] = 'letter';
+		  $qvars[] = SNAP_SLUG;
 		  return $qvars;
 	}
 	
@@ -70,7 +70,7 @@ class glossary_rewrite{
 	function templateRedirect() {
 		global $wp_query;
 		
-		if ( get_query_var('post_type') == 'glossary' && !is_robots() && !is_feed() && !is_trackback() ) {
+		if ( get_query_var('post_type') == GLOSSARY_POSTTYPE && !is_robots() && !is_feed() && !is_trackback() ) {
 			$this->loadCustomTemplate(); // Load specific template
 			$wp_query->is_home = false;	// correct is_home variable
 		}
@@ -84,8 +84,8 @@ class glossary_rewrite{
 	 */
 	function loadCustomTemplate() {
 
-		$templates[] = "glossary-".get_query_var('letter').".php";
-		$templates[] = "glossary.php";		
+		$templates[] = GLOSSARY_POSTTYPE."-".get_query_var(SNAP_SLUG).".php";
+		$templates[] = GLOSSARY_POSTTYPE.".php";		
 
 		locate_template( $templates, true );
 		exit();

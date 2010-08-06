@@ -228,7 +228,7 @@ class simple_snap_core {
 	function generate_url( $letter ) {
 		$permalink_structure = get_option('permalink_structure');
 		if ( '' == $permalink_structure ) {
-			$link = home_url("?post_type=" .GLOSSARY_POSTTYPE.'&letter='.$letter);
+			$link = home_url("?post_type=" .GLOSSARY_POSTTYPE.'&'.SNAP_SLUG.'='.$letter);
 		} else {
 			$link = home_url( get_option( 'key_snap_fancyurlname').'/'.$letter );
 			$link = trailingslashit($link);

@@ -34,6 +34,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 // Define the default glossary post type slug
 define( 'GLOSSARY_POSTTYPE', 'glossary' );
+define( 'GLOSSARY_POSTTYPE_NAME', 'Glossary' );
 define( 'SNAP_SLUG', 'letter' );
 
 require( dirname(__FILE__) . '/inc/class.core.php' );
@@ -61,12 +62,12 @@ function simple_snap_init() {
 add_action( 'plugins_loaded', 'simple_snap_init' );
 
 //Add new custom post type glossary
-add_action('init', 'add_glossary');	
-function add_glossary(){
-	register_post_type( 'glossary', array(
+add_action('init', 'add_post_type_snap');	
+function add_post_type_snap(){
+	register_post_type( GLOSSARY_POSTTYPE, array(
 		'labels' => array(
-					'name' => __( 'Lexique' ),
-					'singular_name' => __( 'Lexique' ),
+					'name' => __( GLOSSARY_POSTTYPE_NAME ),
+					'singular_name' => __( GLOSSARY_POSTTYPE_NAME ),
 				),
 		'public'  => true,
 		'capability_type' => 'post',
