@@ -9,8 +9,8 @@ Author URI: http://www.beapi.fr
 
 Doc :
 	Use simple_snap(), for display the filters ! 
-	Create a template file glossary.php
-	Create templates glossary-A.php etc... for customize letters
+	Create a template file yourposttype.php
+	Create templates yourposttype-A.php etc... for customize letters
 
 Original work from WP-SNAP! by Nathan Olsen - http://www.nateomedia.com/
 
